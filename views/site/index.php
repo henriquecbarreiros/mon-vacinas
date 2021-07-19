@@ -32,6 +32,18 @@ $this->registerJs('
 );
 
 ?>
+<style>
+        body { 
+            background-color: #4993cc; 
+            color:#4993cc; 
+        }
+</style>
+    <center>
+    <p>
+    <img src="/../iotse/views/site/v1_img.png" height="250px">
+    </p>
+    </center>
+
 <div class="site-index">
 
     <div class="body-content">
