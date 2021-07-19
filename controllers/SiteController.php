@@ -69,8 +69,16 @@ class SiteController extends Controller
         $lastten = "https://iotservertest.herokuapp.com/lastten";
         $json_ten = json_decode(file_get_contents($lastten));
 
+        $warning = array();
+
+        foreach($json_ten as $temp){
+            if($temp->temperature > 34.3){
+                array_push($warning, $temp);
+            }
+        }
+
         $dataprovider = new ArrayDataProvider([
-            'allModels' => $json_ten,
+            'allModels' => $warning,
             'pagination' => [
                 'pageSize' => 5,
             ],
@@ -96,8 +104,16 @@ class SiteController extends Controller
         $lastten = "https://iotservertest.herokuapp.com/lastten";
         $json_ten = json_decode(file_get_contents($lastten));
 
+        $warning = array();
+
+        foreach($json_ten as $temp){
+            if($temp->temperature > 34.3){
+                array_push($warning, $temp);
+            }
+        }
+
         $dataprovider = new ArrayDataProvider([
-            'allModels' => $json_ten,
+            'allModels' => $warning,
             'pagination' => [
                 'pageSize' => 5,
             ],

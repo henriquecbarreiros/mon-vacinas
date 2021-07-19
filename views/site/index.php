@@ -29,7 +29,7 @@ $this->registerJs('
 
 
     }, 5000);', \yii\web\VIEW::POS_HEAD
-); 
+);
 
 ?>
 <div class="site-index">
