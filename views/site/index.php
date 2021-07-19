@@ -4,38 +4,34 @@
 
 /**
 * @val $dataprovider
+* @val $json
 */
 
 use yii\grid\Column;
 use yii\grid\GridView;
 
-$this->title = 'My Yii Application';
-
-$last = "https://iotservertest.herokuapp.com/last";
-$json = json_decode(file_get_contents($last))[0];
-
-$lastten = "https://iotservertest.herokuapp.com/lastten";
-$json_ten = json_decode(file_get_contents($lastten));
+$this->title = 'iotWebside';
 
 $this->registerJs(' 
     setInterval(function(){  
-        
-    }, 10000);', \yii\web\VIEW::POS_HEAD
+        $.post(
+            "index.php?r=site/update",
+            function(data){
+                $("#tempAtual").html(data);
+            }
+        ),
+        $.post(
+            "index.php?r=site/updategrid",
+            function(data){
+                $("#gridTemp").html(data);
+            }
+        )
+
+
+    }, 5000);', \yii\web\VIEW::POS_HEAD
 ); 
 
 ?>
-  <style>
-        body { 
-            background-color: #4993cc; 
-            color:#4993cc; 
-        }
-    </style>
-    <center>
-    <p>
-<<<<<<< HEAD
-    <img src="/../iotse/views/site/v1_img.png" height="250px">
-    </p>
-    </center>
 <div class="site-index">
 
     <div class="body-content">
@@ -48,10 +44,10 @@ $this->registerJs('
                         Lote: 1
                     </div>
                     </center>
-                    <div id = "lote1" class="panel-body">
+                    <div class="panel-body">
                         <div class="jumbotron">
                             <h2>Temp. atual</h1>
-                            <h3><?= $json->temperature ?></h3>
+                            <h3 id = "tempAtual"><?= $json->temperature ?></h3>
                         </div>
                         <hr>
                         
@@ -65,6 +61,7 @@ $this->registerJs('
                             </div>
                             <div class="panel-body">
                                 <?= GridView::widget([
+                                    'options' =>['id' => 'gridTemp'],
                                     'dataProvider' => $dataprovider,
                                     'columns' =>[
 

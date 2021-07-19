@@ -7,10 +7,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
 use yii\data\ArrayDataProvider;
-use yii\debug\models\timeline\DataProvider;
+use yii\grid\GridView;
+use yii\grid\Column;
 
 class SiteController extends Controller
 {
@@ -64,6 +63,9 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
+        $last = "https://iotservertest.herokuapp.com/last";
+        $json = json_decode(file_get_contents($last))[0];
+
         $lastten = "https://iotservertest.herokuapp.com/lastten";
         $json_ten = json_decode(file_get_contents($lastten));
 
@@ -76,6 +78,45 @@ class SiteController extends Controller
                 'attributes' => ['_id']
             ]
         ]);
-        return $this->render('index', ['dataprovider' => $dataprovider]);
+        return $this->render('index', ['dataprovider' => $dataprovider, 'json' => $json]);
+
     }
+
+    public function actionUpdate(){
+
+        $last = "https://iotservertest.herokuapp.com/last";
+        $json = json_decode(file_get_contents($last))[0];
+
+        echo $json->temperature;
+
+    }
+
+    public function actionUpdategrid(){
+        
+        $lastten = "https://iotservertest.herokuapp.com/lastten";
+        $json_ten = json_decode(file_get_contents($lastten));
+
+        $dataprovider = new ArrayDataProvider([
+            'allModels' => $json_ten,
+            'pagination' => [
+                'pageSize' => 5,
+            ],
+            'sort' =>[
+                'attributes' => ['_id']
+            ]
+        ]);
+
+        echo GridView::widget([
+            'options' =>['id' => 'gridTemp'],
+            'dataProvider' => $dataprovider,
+            'columns' =>[
+
+                'temperature',
+                'createdAt'
+    
+            ]]
+        );
+
+    }
+    
 }
