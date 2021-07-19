@@ -1,8 +1,5 @@
 {
-    "post-install-cmd": [
-     "php artisan clear-compiled",
-     "chmod -R 777 public/"
- ]
+    
     "name": "yiisoft/yii2-app-basic",
     "description": "Yii 2 Basic Project Template",
     "keywords": ["yii2", "framework", "basic", "project template"],
