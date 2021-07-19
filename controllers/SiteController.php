@@ -66,7 +66,7 @@ class SiteController extends Controller
         $last = "https://iotservertest.herokuapp.com/last";
         $json = json_decode(file_get_contents($last))[0];
 
-        $lastten = "https://iotservertest.herokuapp.com/lastten";
+        $lastten = "https://iotservertest.herokuapp.com/all";
         $json_ten = json_decode(file_get_contents($lastten));
 
         $warning = array();
@@ -101,7 +101,7 @@ class SiteController extends Controller
 
     public function actionUpdategrid(){
         
-        $lastten = "https://iotservertest.herokuapp.com/lastten";
+        $lastten = "https://iotservertest.herokuapp.com/all";
         $json_ten = json_decode(file_get_contents($lastten));
 
         $warning = array();

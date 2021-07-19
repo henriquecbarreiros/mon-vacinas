@@ -37,13 +37,15 @@ $this->registerJs('
     <div class="body-content">
 
         <div class = "row">
-            <div class="col-lg-6">
-                <div class = "panel panel-default">
-                    <center>
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class = "panel panel-primary">
+                   
                     <div class="panel-heading">
-                        Lote: 1
+                        <center>
+                            <h2>Lote Astrazenica</h2>
+                        </center>
                     </div>
-                    </center>
+                    
                     <div class="panel-body">
                         <div class="jumbotron">
                             <h2>Temp. atual</h1>
