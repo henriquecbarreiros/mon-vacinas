@@ -24,15 +24,29 @@ $this->registerJs('
 ); 
 
 ?>
+  <style>
+        body { 
+            background-color: #4993cc; 
+            color:#4993cc; 
+        }
+    </style>
+    <center>
+    <p>
+    <img src="/../iotse/views/site/v1_img.png" height="250px">
+    </p>
+    </center>
 <div class="site-index">
 
     <div class="body-content">
+
         <div class = "row">
             <div class="col-lg-6">
                 <div class = "panel panel-default">
+                    <center>
                     <div class="panel-heading">
                         Lote: 1
                     </div>
+                    </center>
                     <div id = "lote1" class="panel-body">
                         <div class="jumbotron">
                             <h2>Temp. atual</h1>
@@ -42,9 +56,11 @@ $this->registerJs('
                         
                         <div class = "panel panel-default">
                             <div class="panel-heading">
+                                <center>
                                 <h4 class="panel-title">
                                     picos de temperatura
                                 </h4>
+                                </center>
                             </div>
                             <div class="panel-body">
                                 <?= GridView::widget([
