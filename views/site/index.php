@@ -32,6 +32,7 @@ $this->registerJs('
     </style>
     <center>
     <p>
+<<<<<<< HEAD
     <img src="/../iotse/views/site/v1_img.png" height="250px">
     </p>
     </center>
